@@ -27,23 +27,25 @@ export class DataService {
    get_random_movies()
  {
      var movies = this.get_movies_titles();
-     var movie_tmp =  new IMovies();
      
+      
 
      for(var i = 0; i< movies.length;i++)
      {
         this.query = movies[i];
         var url =  this.themoviedb_api + this.query + this.op_paramters;
-        
+        var movie_tmp =  new IMovies();
+
         this.http.get(url).subscribe(movie => {
+
         movie_tmp.id  =  movie["results"][0].id;
         movie_tmp.genre = movie["results"][0].genre_ids;
         movie_tmp.release_date = movie["results"][0].release_date;
         movie_tmp.title = movie["results"][0].title;
         movie_tmp.poster = this.themoviedb_api_basic_image + movie["results"][0].poster_path;
+
         this.movies.push(movie_tmp);
-        console.log(movie["results"][0]);
-        movie_tmp = new IMovies();
+        
        });
        
 
