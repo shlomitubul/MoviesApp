@@ -1,0 +1,18 @@
+
+<div class="mx-auto" style="width: 600px;margin-top: 7%">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info" *ngFor='let movie of movies'>
+        <img src='{{movie.poster}}' alt="..." class="img-rounded" style="width: 100px;height: 100px;">
+        <div>
+            Name: {{movie.title}}
+            <br/> 
+            Id: {{movie.id}}
+            <br/>
+            Release Date: {{movie.release_date}}
+            <br/>
+        </div>
+      
+        <button type="button" class="btn btn-primary">Edit</button>
+      </li>
+    </ul>
+  </div>
